@@ -82,4 +82,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   `;
   document.head.appendChild(style);
+  // Scroll to Top Button
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  if (scrollToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollToTopBtn.classList.remove('opacity-0', 'invisible');
+      } else {
+        scrollToTopBtn.classList.add('opacity-0', 'invisible');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 });
